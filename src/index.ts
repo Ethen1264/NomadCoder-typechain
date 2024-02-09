@@ -14,5 +14,7 @@ class Block implements BlockShape {
   }
   static calulateHash(prevHash: string, height: number, data: string) {
     const toHash = `${prevHash}${height}${data}`;
+    return crypto.createHash("sha256").update(toHash).digest
+    ("hex")
   }
 }
